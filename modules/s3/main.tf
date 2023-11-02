@@ -47,14 +47,3 @@ resource "aws_s3_bucket_lifecycle_configuration" "app_file_lifecycle" {
     }
   }
 }
-
-# Making buckets private
-resource "aws_s3_bucket_acl" "lambda_storage_acl" {
-  bucket = aws_s3_bucket.lambda_storage.id
-  acl    = "private"
-}
-
-resource "aws_s3_bucket_acl" "app_file_acl" {
-  bucket = aws_s3_bucket.app_file_storage.id
-  acl    = "private"
-}
